@@ -46,6 +46,30 @@ class UserController {
                 }
 
         }
+
+        [ users : users ]
+
+    }
+
+    def prodSearch() {}
+
+    def prodResults = {
+
+        def userProps = User.metaClass.properties*.name
+        def users = User.withCriteria {
+                "${params.queryType}" {
+
+                        params.each { field, value ->
+
+                            if (userProps.grep(field) && value) {
+                                ilike(field, value)
+                            }
+                        }
+
+                }
+
+        }
+
         [ users : users ]
 
     }
