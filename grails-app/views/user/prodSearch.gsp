@@ -1,6 +1,3 @@
-<%! import randomorbit.test.BuildEnum %> 
-
-
 <html>
     <head>
         <title>Search Hubbub</title>
@@ -13,9 +10,20 @@
 
             <g:form action="prodResults">
 
+                   myGroup: 
+
+
+                   <g:radioGroup name="myGroup" values="[1,2,3]">
+
+                        <g:message code="${it.label}" />: ${it.radio}                     
+
+                   </g:radioGroup>
+
+<br><br>
+
                    build: <g:radioGroup name="build"
-                          values="${BuildEnum.values()}"
-                          labels="${BuildEnum.values()*.name()}"
+                          values="${randomorbit.test.BuildEnum.values()}"
+                          labels="${randomorbit.test.BuildEnum.values()*.name()}" 
                           value="${buildInstance?.type?.name()}">
                           ${it.radio} <g:message code="${it.label}" />&nbsp;
                      </g:radioGroup> <br><br>
