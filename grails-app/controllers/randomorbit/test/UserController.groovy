@@ -51,14 +51,13 @@ class UserController {
 
     }
 
-    def prodSearch() {}
+    def selectSearch() {}
 
-    def prodResults = {
+    def selectResults = {
 
         def userProps = User.metaClass.properties*.name
         def users = User.withCriteria {
-                "${params.queryType}" {
-
+                and {
                         params.each { field, value ->
 
                             if (userProps.grep(field) && value) {
@@ -74,5 +73,27 @@ class UserController {
 
     }
 
+
+    def radioSearch() {}
+
+    def radioResults = {
+
+        def userProps = User.metaClass.properties*.name
+        def users = User.withCriteria {
+                and {
+                        params.each { field, value ->
+
+                            if (userProps.grep(field) && value) {
+                                ilike(field, value)
+                            }
+                        }
+
+                }
+
+        }
+
+        [ users : users ]
+
+    }
 
 }

@@ -10,12 +10,11 @@ class User {
 
     Date dateCreated
 
-    //EthnicEnum ethnic
-    //HairEnum hair
-    //BuildEnum build
     String ethnic
     String hair
     String build
+
+    String bio
 
 
     //static hasMany = [ posts : Post, tags : Tag, following : User ]
@@ -25,6 +24,7 @@ class User {
         userId(blank:false, unique: true)
         password(blank:false)
         email(email: true, nullable: true)
+        bio(nullable: true, maxSize: 1000)
         dateCreated()
     }
 }

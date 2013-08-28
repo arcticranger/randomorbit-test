@@ -2,9 +2,9 @@ package randomorbit.test
 
 public enum HairEnum {
 
-    BLACK('black'),
-    BROWN('brown'),
-    RED('red')
+    BLACK('Black'),
+    BROWN('Brown'),
+    RED('Red')
   
     String name
   

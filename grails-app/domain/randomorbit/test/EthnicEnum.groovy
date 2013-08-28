@@ -2,9 +2,9 @@ package randomorbit.test
 
 public enum EthnicEnum {
 
-    WHITE('white'),
-    BLACK('black'),
-    LATINO('latino')
+    WHITE('White'),
+    BLACK('Black'),
+    LATINO('Latino')
 
     String name
 

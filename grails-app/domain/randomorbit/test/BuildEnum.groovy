@@ -2,9 +2,9 @@ package randomorbit.test
 
 public enum BuildEnum {
 
-    SKINNY('skinny'),
-    AVERAGE('average'),
-    FAT('fat')
+    SKINNY('Skinny'),
+    AVERAGE('Average'),
+    FAT('Fat')
 
     String name
 
