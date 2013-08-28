@@ -6,11 +6,16 @@ class User {
     String password
     String email
 
+    int age
+
     Date dateCreated
 
-    EthnicEnum ethnic
-    HairEnum hair
-    BuildEnum build
+    //EthnicEnum ethnic
+    //HairEnum hair
+    //BuildEnum build
+    String ethnic
+    String hair
+    String build
 
 
     //static hasMany = [ posts : Post, tags : Tag, following : User ]
