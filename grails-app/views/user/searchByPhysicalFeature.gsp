@@ -6,10 +6,10 @@
     <body>
 
         <formset>
-            <legend>example of selects using enum classes</legend>
+            <legend>searchByPhysicalFeature.gsp (example of select using enum classes)</legend>
 
             <table>
-                <g:form action="selectResults">
+                <g:form action="resultByPhysicalFeature">
                     <tr>
                         <td>Build</td>
                         <td><g:select name="build" from="${randomorbit.test.BuildEnum.values()}" optionValue="name" /></td>

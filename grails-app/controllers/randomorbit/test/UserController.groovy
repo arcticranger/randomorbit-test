@@ -1,18 +1,27 @@
 package randomorbit.test
 
+
+import grails.converters.JSON
+
+
 class UserController {
 
     def scaffold = true
 
     def index() { }
 
-    def search = {}
-        
 
-    def results = {
-         def users = User.findAllByUserIdLike("%${params.userId}%")
-         return [ users: users, term : params.userId ]
+    //------------------------------------
+    // search on username
+    //------------------------------------
+    def searchByUsername = {}
+
+    def resultByUsername = {
+         def users = User.findAllByUsernameLike("%${params.username}%")
+         return [ users: users, term : params.username ]
     }
+
+
 
     def advSearch = {}
 
@@ -42,35 +51,14 @@ class UserController {
 
 
 
-/*
-    def selectResults = {
-
-        def userProps = ["ethnic", "hair", "build", "bio"]
 
 
-        def users = User.withCriteria {
-                and {
-                        params.each { field, value ->
+    //------------------------------------
+    // search on physical feature
+    //------------------------------------
+    def searchByPhysicalFeature() {}
 
-                            println "param: " + field + " " + value
-
-                            if (userProps.grep(field) && value) {
-                                println "found " + field + " in " + userProps
-                                ilike(field, value)
-                            }
-                        }
-
-                }
-        }
-
-        [ users : users ]
-    }
-*/
-
-
-    def selectSearch() {}
-
-    def selectResults = {
+    def resultByPhysicalFeature = {
 
         println "in new results"
 
@@ -86,10 +74,12 @@ class UserController {
 
 
 
+    //------------------------------------
+    // search on a word in user bio
+    //------------------------------------
+    def searchByBioTerm() {}
 
-    def textSearch() {}
-
-    def textResults = {
+    def resultByBioTerm = {
 
         println "term " + params.term
 
@@ -103,6 +93,7 @@ class UserController {
         }
 
 
+        //render users as JSON
         [ users : users ]
     }
 

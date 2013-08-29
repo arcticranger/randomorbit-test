@@ -6,11 +6,11 @@
     <body>
 
         <formset>
-            <legend>Text Search</legend>
+            <legend>searchByUserame.gsp</legend>
 
-            <g:form action="textResults">
-                <label for="term">Term</label>
-                <g:textField name="term" />
+            <g:form action="resultByUsername">
+                <label for="username">User Id</label>
+                <g:textField name="username" />
                 
                 <g:submitButton name="search" value="Search"/>
             </g:form>

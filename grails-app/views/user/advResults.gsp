@@ -15,7 +15,7 @@
             <g:each var="user" in="${users}">
 
                 <g:link action="show" id="${user.id}">
-                      <li>${user.userId}</li>
+                      <li>${user.username}</li>
                 </g:link>
 
             </g:each>

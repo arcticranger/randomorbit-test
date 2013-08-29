@@ -6,11 +6,11 @@
     <body>
 
         <formset>
-            <legend>Search for Friends</legend>
+            <legend>searchByBioTerm</legend>
 
-            <g:form action="results">
-                <label for="userId">User Id</label>
-                <g:textField name="userId" />
+            <g:form action="resultByBioTerm">
+                <label for="term">Term</label>
+                <g:textField name="term" />
                 
                 <g:submitButton name="search" value="Search"/>
             </g:form>

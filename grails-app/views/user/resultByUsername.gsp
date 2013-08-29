@@ -18,10 +18,6 @@
                       </td>
 
                       <td>
-                           Age 
-                      </td>
-
-                      <td>
                            Ethnicity
                       </td>
 
@@ -40,6 +36,22 @@
                       <td>
                            Bio 
                       </td>
+
+                      <td>
+                           City 
+                      </td>
+
+                      <td>
+                           State 
+                      </td>
+
+                      <td>
+                           Country
+                      </td>
+
+                      <td>
+                           Zipcode 
+                      </td>
                 </tr>
 
 
@@ -47,11 +59,7 @@
 
                 <tr>
                       <td>
-                           <g:link action="show" id="${user.id}">${user.userId}</g:link>
-                      </td>
-
-                      <td>
-                           ${user.age}
+                           <g:link action="show" id="${user.id}">${user.username}</g:link>
                       </td>
 
                       <td>
@@ -73,13 +81,29 @@
                       <td>
                            ${user.bio}
                       </td>
+
+                      <td>
+                           ${user.location?.city}
+                      </td>
+
+                      <td>
+                           ${user.location?.state}
+                      </td>
+
+                      <td>
+                           ${user.location?.country}
+                      </td>
+
+                      <td>
+                           ${user.location?.zipcode}
+                      </td>
                 </tr>
                      
 
             </g:each>
         </ul>
 
-        <g:link action='textSearch'>Search Again</g:link>
+        <g:link action='searchByUsername'>Search Again</g:link>
 
     </body>
 </html>
