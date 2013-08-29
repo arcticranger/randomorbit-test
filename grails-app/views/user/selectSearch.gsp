@@ -26,10 +26,17 @@
                     </tr>
 
                     <tr>
+                        <td>Bio (enter any word)</td>
+                        <td><g:textField name="bio" /></td>
+                    </tr>
+
+
+                    <tr>
                         <td/>
                         <td>
                         <g:submitButton name="search" value="Search"/></td>
                     </tr>
+
                 </g:form>
             </table>
 

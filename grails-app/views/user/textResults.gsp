@@ -79,7 +79,7 @@
             </g:each>
         </ul>
 
-        <g:link action='selectSearch'>Search Again</g:link>
+        <g:link action='textSearch'>Search Again</g:link>
 
     </body>
 </html>
