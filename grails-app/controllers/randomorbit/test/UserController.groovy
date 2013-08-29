@@ -16,19 +16,6 @@ class UserController {
 
     def advSearch = {}
 
-/*
-    def advResults = {
-
-        def u = User.createCriteria()
-
-        def users = u.list {
-            like("hair".valueOf(), "RED")
-        }
-
-        return [ users: users, term : params.userId ]
-
-    }
-*/
 
     def advResults = {
 
@@ -58,16 +45,7 @@ class UserController {
 /*
     def selectResults = {
 
-        //def userProps = User.metaClass.properties*.name
         def userProps = ["ethnic", "hair", "build", "bio"]
-        //println "userProps.size() = " + userProps.size()
-        //println "userProps = " + userProps
-
-
-//def list = ["Java", "Groovy", "JavaScript"]
-//list.each{language->
-//  println language
-//}
 
 
         def users = User.withCriteria {
@@ -116,8 +94,8 @@ class UserController {
         println "term " + params.term
 
 
-def wildterm = "%" + params.term + "%"
-println wildterm
+        def wildterm = "%" + params.term + "%"
+        println wildterm
 
         def c = User.createCriteria()
         def users = c.list () {
