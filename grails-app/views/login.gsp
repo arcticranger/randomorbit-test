@@ -7,7 +7,7 @@
 <div>
     <h3>Login</h3>
     <div id="loginForm">
-        <g:form action="signin" controller="user">
+        <g:form action="signIn" controller="user">
             <table>
                 <tr>
                     <td>User ID:</td><td><g:textField name="username"/></td>

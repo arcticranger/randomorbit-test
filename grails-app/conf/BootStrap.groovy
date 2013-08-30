@@ -3,7 +3,7 @@ class BootStrap {
     def init = { servletContext ->
 
 
-
+/*
            def sampleuser
 
            sampleuser = new randomorbit.test.User(username:"jackdoe", password:"password", email:"jdoe@x.com", ethnic:"LATINO", build: "SKINNY", hair: "BLACK", headline: "hey, in the mountains", bio: "hey, in the mountains during the week this week and looking for someone to go hiking with. I'm fit and know alot of the trails in the neighborhood, would be nice to make new friends. Anyone here want to take a walk?", age:38, zipcode: "12764")
@@ -59,8 +59,9 @@ class BootStrap {
 
            samplelocation = new randomorbit.test.Location(zipcode:"51011", lat:42.5, lon:-96.39, city:"SIOUX CITY", state: "IA", country: "US", type: "STANDARD")
            samplelocation.save()
-
-    }
+*/
+ 
+   }
     def destroy = {
     }
 }
