@@ -196,6 +196,24 @@ println "\n\n\n\n"
 
 
 
+   def convert() {
+
+        def sql = Sql.newInstance('jdbc:mysql://localhost:3306/random1', 'kurt', 'bartok12', 'com.mysql.jdbc.Driver')
+
+        def convertQuery = "SELECT zip, lat, lon, city, state, type, county from zip_codes";
+
+        def i = 1;
+
+        sql.eachRow(convertQuery) { row ->
+            println "insert into location values(" + i++ + ", 0 ," + "'" + row.city + "'" + "," + "'" + row.county + "'" + "," + "'2013-08-29 18:30:13'" + "," + row.lat + "," + row.lon + "," + "'" + row.state + "'" + "," + "'" + row.type + "'" + "," + "'" + row.zip + "'" + ");" 
+        }
+
+
+   }
+
+
+
+
     def radioSearch() {}
 
     def radioResults = {
