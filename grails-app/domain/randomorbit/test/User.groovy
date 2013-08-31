@@ -17,7 +17,7 @@ class User {
     String headline
     String bio
 
-    String zipcode
+    //String zipcode
 
     Location location
 

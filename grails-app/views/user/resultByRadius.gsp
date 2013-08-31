@@ -9,6 +9,11 @@
         <p>Searched ${randomorbit.test.User.count()} records
         for items matching <em>${term}</em>.
         Found <strong>${users.size()}</strong> hits.
+
+
+
+
+        The following cities within ${kmRange} kilometers were searched: <table border><g:each var="city" in="${cities}"><tr><td>${city}</td></tr></g:each></table>
         </p>
 
         <table border>

@@ -8,7 +8,6 @@ class Location {
     String city
     String state
     String country
-    String type
 
     Date dateCreated
 }
