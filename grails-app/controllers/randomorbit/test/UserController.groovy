@@ -30,14 +30,19 @@ class UserController {
     }
 
 
+
+
     //------------------------------------
     // search on username
     //------------------------------------
     def searchByUsername = {}
 
     def resultByUsername = {
+
+params.username = "jack"
          def users = User.findAllByUsernameLike("%${params.username}%")
-         return [ users: users, term : params.username ]
+         //return [ users: users, term : params.username ]
+         render users as JSON
     }
 
 
@@ -126,7 +131,9 @@ class UserController {
 
     def resultByRadius = {
 
-        def currentuser = User.findByUsername(params.username)
+        //def currentuser = User.findByUsername(params.username)
+        def currentuser = User.findByUsername("jackdoe")
+       
 
         if (currentuser) {
             println "found " + currentuser.username + " at latitute " + currentuser.location.lat + " / longitude " + + currentuser.location.lon
@@ -137,7 +144,8 @@ class UserController {
 
         def lat = currentuser.location.lat
         def lon = currentuser.location.lon
-        def kmRange = params.kilometers
+        //def kmRange = params.kilometers
+        def kmRange = 50
 
         //-----------------------------------------
         // define the connection
@@ -175,9 +183,15 @@ class UserController {
             }
         }
 
-        //render currentuser as JSON
-        [ users : userlist, cities: citylist, kmRange: kmRange ]
+        //[ users : userlist, cities: citylist, kmRange: kmRange ]
+
+        String resp = userlist as grails.converters.deep.JSON
+        resp = params.callback + "(" + resp + ")"
+        render (contentType: "application/json", text: resp)
     }
+
+
+
 
 
 
@@ -221,5 +235,4 @@ class UserController {
         [ users : users ]
 
     }
-
 }

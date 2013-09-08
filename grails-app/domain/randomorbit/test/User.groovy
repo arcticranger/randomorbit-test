@@ -33,4 +33,8 @@ class User {
         location(nullable: true)
         dateCreated()
     }
+
+ static mapping = {
+        location lazy: false
+    }
 }
