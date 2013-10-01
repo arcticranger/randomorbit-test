@@ -1,127 +1,11 @@
 package randomorbit.test
 
-
 import grails.converters.JSON
 import groovy.sql.Sql
+import org.codehaus.groovy.grails.web.json.JSONObject 
 
 
 class UserController {
-
-    def scaffold = true
-
-    def index() { }
-
-    def signin() {
-
-        println "in signin action"
-
-        def currentuser = User.findByUsername(params.username)
-
-        if (currentuser) {
-            println "found"
-
-            println currentuser.username 
-            println currentuser.location.city 
-            println currentuser.location.zipcode 
-        }
-        else {
-            println "not found"
-        }
-    }
-
-
-
-
-    //------------------------------------
-    // search on username
-    //------------------------------------
-    def searchByUsername = {}
-
-    def resultByUsername = {
-
-params.username = "jack"
-         def users = User.findAllByUsernameLike("%${params.username}%")
-         //return [ users: users, term : params.username ]
-         render users as JSON
-    }
-
-
-
-    def advSearch = {}
-
-
-    def advResults = {
-
-        def userProps = User.metaClass.properties*.name
-        def users = User.withCriteria {
-                "${params.queryType}" {
-
-                        params.each { field, value ->
-
-                            if (userProps.grep(field) && value) {
-
-
-                                ilike(field, value)
-                            }
-                        }
-
-                }
-
-        }
-
-        [ users : users ]
-
-    }
-
-
-
-
-
-    //------------------------------------
-    // search on physical feature
-    //------------------------------------
-    def searchByPhysicalFeature() {}
-
-    def resultByPhysicalFeature = {
-
-        println "in new results"
-
-        def query = User.where {
-            (ethnic == params.ethnic && build == params.build && hair == params.hair)
-        }
-
-        def users = query.list(sort:"ethnic")
-
-
-        [ users : users ]
-    }
-
-
-
-    //------------------------------------
-    // search on a word in user bio
-    //------------------------------------
-    def searchByBioTerm() {}
-
-    def resultByBioTerm = {
-
-        println "term " + params.term
-
-
-        def wildterm = "%" + params.term + "%"
-        println wildterm
-
-        def c = User.createCriteria()
-        def users = c.list () {
-             like("bio", wildterm)
-        }
-
-
-        //render users as JSON
-        [ users : users ]
-    }
-
-
 
 
     //------------------------------------
@@ -185,54 +69,35 @@ params.username = "jack"
 
         //[ users : userlist, cities: citylist, kmRange: kmRange ]
 
+
+/*
         String resp = userlist as grails.converters.deep.JSON
         resp = params.callback + "(" + resp + ")"
         render (contentType: "application/json", text: resp)
-    }
+*/
 
 
 
 
+        //String deepPeopleList = userlist as grails.converters.deep.JSON
+        //String jo = new JSONObject()
+        //jo.putOpt("people", deepPeopleList)
+        //jo.putOpt("people", userlist as grails.converters.deep.JSON)
+   
+
+        //render jo.toString()
 
 
-
-   def convert() {
-
-        def sql = Sql.newInstance('jdbc:mysql://localhost:3306/random1', 'kurt', 'bartok12', 'com.mysql.jdbc.Driver')
-
-        def convertQuery = "SELECT zip, lat, lon, city, state, type, county from zip_codes";
-
-        def i = 1;
-
-        sql.eachRow(convertQuery) { row ->
-            println "insert into zip values(" + row.zip + ", 0 ," + "'" + row.city + "'" + "," + "'" + row.county + "'" + "," + "'2013-08-29 18:30:13'" + "," + row.lat + "," + row.lon + "," + "'" + row.state + "'" + ");" 
-        }
+        //String resp = params.callback + "(" + jo + ")"
+        //render (contentType: "application/json", text: resp)
 
 
-   }
+        //println jo.toString()
 
+        String deepPeopleList = userlist as grails.converters.deep.JSON 
 
-
-
-    def radioSearch() {}
-
-    def radioResults = {
-
-        def userProps = User.metaClass.properties*.name
-        def users = User.withCriteria {
-                and {
-                        params.each { field, value ->
-
-                            if (userProps.grep(field) && value) {
-                                ilike(field, value)
-                            }
-                        }
-
-                }
-
-        }
-
-        [ users : users ]
+        render deepPeopleList 
 
     }
+
 }
